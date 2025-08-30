@@ -192,3 +192,19 @@ For technical issues, refer to the notebook's inline documentation and error han
 ---
 
 *This tool represents a novel approach to computational linguistics in language learning, bridging traditional frequency-based methods with modern embedding-based techniques.*
+
+
+............
+
+language specific hard coded logic or regex or vars that are not in the central config?
+
+update introduction and outro markdowns to refelct the current number of methods we are implementing?
+
+..............
+
+ask ai to judge best approaches now linguistically compared to estimation of Actual difficulty of hte words since it is an llm you cna feed it the dataset itself as well
+
+some meta analysis or model that kind of averages eveything out?
+
+..........
+final commentary and include also checking that intro and outro make sense, you can also create custom sample subtitles or some sort of test with known preassumtion then comparing it

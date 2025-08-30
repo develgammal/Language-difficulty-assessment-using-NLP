@@ -1,0 +1,65 @@
+Agent, excellent work. The notebook is now stable and functionally complete. We will now perform a final cleanup pass to achieve a polished, submission-ready state. The goals are to improve code modularity, remove all remaining redundant code, and fix a few minor issues.
+
+#### **1. The Final Notebook Architecture**
+
+Restructure the notebook to follow this clean, 8-cell logical flow. This involves moving function definitions out of execution blocks.
+
+1.  **Cell 1:** All Markdown introductions.
+2.  **Cell 2:** The "Setup and Configuration" cell (installs, imports, user config).
+3.  **Cell 3: Helper Function Definitions.** Create a *new, single cell* here. Move **all** `def` statements into this cell. This includes `parse_srt`, `calculate_frequency_lexicon`, `calculate_embedding_norm_lexicon`, all the feature engineering functions for Method C, and the visualization helper functions. This cell will only contain function definitions, no execution calls.
+4.  **Cell 4: Data Loading.** A short cell that only calls `sentences = parse_srt(SRT_FILE_PATH)`.
+5.  **Cell 5: ONE-TIME SETUP.** This cell now only *calls* the functions defined in Cell 3 to generate the lexicons and train the Method C model.
+6.  **Cell 6: Topic Modeling.** The cell that calls `BERTopic` and creates `df_sentences`.
+7.  **Cell 7: Main Visualization.** The final, clean cell that displays the three-way comparison.
+8.  **Cell 8: Quantitative Analysis.** The final cell containing the detailed plots comparing the methods.
+
+#### **2. Specific Refactoring Instructions**
+
+**A. Consolidate All Function Definitions:**
+Create a new cell after the main configuration cell (this will be the new Cell 3). Find and **move** the definitions for **all** of the following functions into this single cell:
+
+  * `parse_srt`
+  * `calculate_frequency_lexicon`
+  * `calculate_embedding_norm_lexicon`
+  * All Method C feature functions (`num_unique_chars`, `has_special_chars`, `calculate_entropy`, `proper_noun_proxy_score`, `create_feature_table`)
+  * All visualization helpers (`colorize_lexicon_sentence`, `get_entity_confidence_score`, `colorize_prediction_sentence`)
+
+**B. Streamline the "One-Time Setup" Cell:**
+The "PART 1" setup cell should now be much shorter. It should only contain the *calls* to the functions, not their definitions. **Replace the entire cell** with this streamlined version:
+
+```python
+# ===================================================================
+# == PART 1: ONE-TIME SETUP (LEXICONS & SUPERVISED MODEL TRAINING) ==
+# ===================================================================
+print("🚀 Kicking off ONE-TIME SETUP...")
+
+# --- Calculate German Lexicons for Methods A & B ---
+print("\n--- Calculating Lexicons for Methods A & B ---")
+freq_lexicon = calculate_frequency_lexicon(TARGET_LANGUAGE, FREQUENCY_TIERS)
+norm_lexicon = calculate_embedding_norm_lexicon(MULTILINGUAL_MODEL, list(freq_lexicon.keys()), NORM_TIERS)
+print("\n✅ German lexicons for Methods A & B created successfully.")
+
+# --- Train and Evaluate Supervised Model for Method C ---
+feature_df = create_feature_table(ENGLISH_WORDS_CSV_PATH, TRAINING_DATA_SAMPLE_SIZE)
+if feature_df is not None:
+    # Train the model
+    method_c_model, label_encoder, X_train, X_test, y_train, y_test = train_method_c_model(feature_df)
+    # Evaluate the model
+    if method_c_model:
+        evaluate_method_c_model(method_c_model, X_test, y_test, label_encoder, X_train.columns)
+else:
+    print("❌ Method C setup skipped due to feature engineering failure.")
+    method_c_model = None
+
+print("\n\n🎯 SETUP COMPLETE")
+```
+
+*(Note: You will need to refactor the Method C training and evaluation code into the `train_method_c_model` and `evaluate_method_c_model` functions in the new helper function cell).*
+
+**C. Clean Up Redundant Cells & Fix Typos:**
+
+  * **Delete Redundant Evaluation:** There are two "Method C: Model Evaluation" cells. Delete the first, more complex one, keeping only the second, simpler one that is known to work (the one titled "WORKING EVALUATION"). Move the logic from this cell into the new `evaluate_method_c_model` helper function.
+  * **Delete Redundant Visualizations:** Ensure there is only **one** "Visualization & Comparative Analysis" section and **one** "Quantitative Analysis" section. Delete all duplicates.
+  * **Fix Config Typos:**
+      * In the main configuration cell, change `ENGLISH_CERF_WORDS.csv` to the correct `ENGLISH_CEFR_WORDS.csv`.
+      * Change `TRAINING_DATA_SAMPLE_SIZE` from `50` to a more robust `2000` and add a comment: `# Set to a lower number (e.g., 500) for very quick tests, or None for the full dataset.`
