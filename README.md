@@ -2,15 +2,27 @@
 
 ## 📚 Project Overview
 
-This project implements a comprehensive language learning tool that analyzes subtitle files (.srt) and provides word difficulty assessments using two distinct computational methodologies. The tool combines natural language processing, machine learning, and data visualization to create an academic experiment comparing different approaches to word difficulty classification.
+This project implements a comprehensive language learning tool that analyzes subtitle files (.srt) and provides word difficulty assessments using three distinct computational methodologies. The tool combines natural language processing, machine learning, and data visualization to create an academic experiment comparing different approaches to word difficulty classification.
+
+**✨ NEW: Enhanced with comprehensive caching system for production-ready performance!**
 
 ## 🎯 Objectives
 
 1. **Topic-based Sentence Grouping**: Automatically group sentences from subtitle files by semantic topics using BERTopic
-2. **Dual Word Difficulty Analysis**: Compare two methods for determining word difficulty:
+2. **Triple Word Difficulty Analysis**: Compare three methods for determining word difficulty:
    - **Method A: Word Frequency** - Traditional approach based on corpus frequency
    - **Method B: Embedding L2 Norm** - Experimental approach using embedding magnitudes
-3. **Comparative Visualization**: Side-by-side color-coded comparison of both methods
+   - **Method C: ML Model** - Supervised learning approach with engineered features
+3. **Comparative Visualization**: Side-by-side color-coded comparison of all three methods
+4. **Production-Ready Caching**: Intelligent caching system for instant subsequent runs
+
+## ⚡ Performance Features
+
+- **First Run**: Full corpus processing and model training (~10-20 minutes)
+- **Subsequent Runs**: Instant loading from cache (< 30 seconds)
+- **Language-Specific Caching**: Separate optimized caches for each language
+- **Configurable Processing**: No default limits, with optional debugging limits
+- **Force Rebuild Options**: Selective regeneration of cached components
 
 ## 🚀 Getting Started
 
