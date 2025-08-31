@@ -54,16 +54,17 @@ add a method C which is a clustering algorthem ou already have most of these fea
 
 also Performing comprehensive quantitative analysis took 15 minutes! make it shorter if possible or more efficient unless that would reduce the quality
 
-also turn in on the option in bertopic that lets topics have names instead of just keywords you know i think it has a build in funciton that can do that
-
 ...................
 
 strong typing centrally for supported languages include top 5 most common and throw error with instructoins wher eyou aupdate a central config that updates everywhere i nthe code with all links and configs of vsars relate dto that lang whether the opus lexicon or spacy version etc where theer is a dict used to strong type or enum those per each language including any specific regex they might need you know? so should they use add specific language they have everything they need to add in one place to change for everywhere
 
-do topics have names from berttpoic
-
-method d average out all ?
+method d average out all ? as statistics purely? probably not..
 better if out of then use favouring c then a then b for next best answer ! with a note that this is anectodal from your observations
+
+..........
+clean up
+...........
+wrap every thing in small compact pages ermove debugging and stuff and make it fit pages  "15 to 20 I think?"
 
 create custom srt using online sources even with preassumtptions that eval?
 
@@ -75,4 +76,16 @@ update read me to reflect all changes
 
 clean up all that inbetween steps
 
-good git ignore and push
+good git ignore and push with all in main
+
+............
+Version 2
+.............
+
+bertopic auto labelling of topics or use a cheap available llm to do this
+
+might at the end add a translate to english step "within context" then determine the word difficulty
+
+huge amounts of data or data augmentation techniques..
+
+turn this into proper project form and add UI
