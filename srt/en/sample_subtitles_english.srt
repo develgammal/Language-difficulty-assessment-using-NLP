@@ -1,0 +1,59 @@
+1
+00:00:01,000 --> 00:00:03,000
+Hello, how are you doing today?
+
+2
+00:00:04,000 --> 00:00:06,000
+I really enjoy learning new languages.
+
+3
+00:00:07,000 --> 00:00:09,000
+The weather is quite pleasant this morning.
+
+4
+00:00:10,000 --> 00:00:12,000
+We are going to the park for a nice walk.
+
+5
+00:00:13,000 --> 00:00:16,000
+Technology has completely transformed our lives.
+
+6
+00:00:17,000 --> 00:00:19,000
+Students are preparing for their final examinations.
+
+7
+00:00:20,000 --> 00:00:23,000
+The museum of modern art has an interesting exhibition.
+
+8
+00:00:24,000 --> 00:00:26,000
+My family is coming to visit this weekend.
+
+9
+00:00:27,000 --> 00:00:30,000
+The global economy faces many challenges ahead.
+
+10
+00:00:31,000 --> 00:00:34,000
+Scientists have discovered new marine species.
+
+11
+00:00:35,000 --> 00:00:37,000
+Classical music helps me relax in the evening.
+
+12
+00:00:38,000 --> 00:00:41,000
+Public transportation is very efficient in this city.
+
+13
+00:00:42,000 --> 00:00:44,000
+History books have always fascinated me greatly.
+
+14
+00:00:45,000 --> 00:00:48,000
+Nature teaches us important lessons about life.
+
+15
+00:00:49,000 --> 00:00:52,000
+Sustainable development is crucial for our planet's future.
