@@ -1,0 +1,54 @@
+howeve you might want to track todos as well
+
+good git ignore and push with all in main
+
+............
+Version 2
+.............
+prompt for central config:
+
+Implement the Centralised Language Configuration Framework
+
+Complete the LanguageConfig Dataclass and Enum:
+
+Objective: Create a single, scalable source of truth for all language-specific parameters.
+
+Action:
+
+Expand the LanguageConfig dataclass to include fields for opus_dataset_code, word_regex_pattern, and cefr_word_list_path (which can be None).
+
+Populate the SupportedLanguages enum with complete LanguageConfig objects for English, Spanish, French, and German. Research and provide sensible defaults for the new fields for each language.
+
+Modify all functions (calculate_frequency_lexicon, load_cefr_data, etc.) to be driven exclusively by the properties of the passed LanguageConfig object, removing all hard-coded language-specific strings.
+
+Implement Dynamic Language Switching and Graceful Degradation:
+
+Objective: Allow the entire notebook's context to be switched via a single variable and handle cases where resources for a language are missing.
+
+Action:
+
+Ensure the DEFAULT_LANGUAGE enum variable at the top of the configuration cell correctly controls all subsequent processing.
+
+In the section for Method D (Supervised ML), add a check for LANGUAGE_CONFIG.cefr_word_list_path. If it is None, the system must:
+
+Skip the training and loading of the supervised model.
+
+Log a clear warning that Method D is unavailable for the selected language.
+
+Modify the METHOD_WEIGHTS in the get_ensemble_prediction function to exclude Method D (e.g., set its weight to 0 or remove it) for the current run, allowing the ensemble to function with the remaining methods.
+.............
+AI generated and rated srt for measurement best from the dataset
+
+turn this into proper project form and add basic UI
+
+
+bertopic auto labelling of topics or use a cheap available llm to do this
+
+might at the end add a translate to english step "within context" then determine the word difficulty
+
+huge amounts of data or data augmentation techniques.. specially for method A
+
+
+how is the performance? should we simplify the model? should we make it more complex and robust?
+
+should we turn the step
